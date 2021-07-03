@@ -1,0 +1,24 @@
+import React from 'react';
+import './Checkout.css';
+
+function Checkout() {
+    return (
+        <div className="checkout">
+            <div className="checkout__left">
+                <img className="checkout__ad" src="https://images-na.ssl-images-amazon.com/images/G/01/img18/home/corp_events/otc21/traffic/home_otc21_desktopstripeB_1500x72.jpg" alt=""/>
+
+                <div>
+                    <h2 className="checkout__title">
+                        Your Shopping Basket
+                    </h2>
+                </div>
+            </div>
+
+            <div className="checkout__right">
+
+            </div>
+        </div>
+    )
+}
+
+export default Checkout;
