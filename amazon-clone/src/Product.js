@@ -33,7 +33,6 @@ function Product({ id, title, image, price, rating }) {
                     {Array(rating).fill().map((_, i) => (
                         <p>&#11088;</p> //Render stars
                     ))}
-                    
                 </div>
             </div>
             <img 
