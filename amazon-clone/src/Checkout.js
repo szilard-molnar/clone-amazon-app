@@ -3,9 +3,15 @@ import './Checkout.css';
 import Subtotal from './Subtotal';
 import CheckoutProduct from './CheckoutProduct';
 import { useStateValue } from './StateProvider';
+// import FlipMove from 'react-flip-move';
 
 function Checkout() {
     const[{basket, user}, dispatch] = useStateValue();
+
+    const itemNotVisible = {
+        transform: "translateX(-100%)",
+        opacity: 0.1
+    }
 
     return (
         <div className="checkout">
@@ -19,15 +25,15 @@ function Checkout() {
                     <h2 className="checkout__title">
                         Your Shopping Basket
                     </h2>
-                    {basket.map(item => (
-                        <CheckoutProduct 
-                            id={item.id}
-                            title={item.title}
-                            price={item.price}
-                            image={item.image}
-                            rating={item.rating}
-                        />
-                    ))}
+                        {basket.map((item) => (
+                            <CheckoutProduct 
+                                id={item.id}
+                                title={item.title}
+                                price={item.price}
+                                image={item.image}
+                                rating={item.rating}
+                            />
+                        ))}
                 </div>
             </div>
 

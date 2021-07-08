@@ -2,6 +2,14 @@
     display: flex;
     margin-top: 20px;
     margin-bottom: 20px;
+    transition: all .25s ease;
+}
+
+.checkoutProduct:hover {
+    background-color: rgb(229, 250, 252);
+    transform: scale(1.02);
+    padding: 10px;
+    box-shadow: 0 0 5px black;
 }
 
 .checkoutProduct__info {
