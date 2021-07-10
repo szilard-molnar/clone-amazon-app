@@ -29,7 +29,9 @@ function Payment() {
                 method: 'post',
                 //Stripe expects the total in a currencies subunits
                 url: `/payments/create?total=${getBasketTotal(basket) * 100}`
-            })
+            });
+
+            setClientSecret(response.data.clientSecret);
         }
 
         getClientSecret();
@@ -40,9 +42,19 @@ function Payment() {
         event.preventDefault();
         setProcessing(true);
 
+        const payload = await stripe.confirmCardPayment(clientSecret, {
+            payment_method: {
+                card: elements.getElement(CardElement)
+            }
+        }).then(({ paymentIntent }) => {
+            //paymentIntend == payment confirmation
 
+            setSucceeded(true);
+            setError(null);
+            setProcessing(false);
 
-        //const payload = await stripe
+            history.replace('/orders');
+        })
     }
 
     const handleChange = (event) => {
