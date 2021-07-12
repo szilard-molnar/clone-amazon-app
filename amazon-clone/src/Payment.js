@@ -28,9 +28,9 @@ function Payment() {
 
         const getClientSecret = async () => {
             const response = await axios({
-                method: 'post',
+                method: "post",
                 //Stripe expects the total in a currencies subunits
-                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+                url: "/payments/create?total=" + getBasketTotal(basket) * 100,
             });
 
             setClientSecret(response.data.clientSecret);
@@ -39,7 +39,7 @@ function Payment() {
         getClientSecret();
     }, [basket]);
 
-    console.log("The secret is: >>> ", clientSecret);
+    console.log("THE SECRET IS >>>> ", clientSecret);
 
     const handleSubmit = async (event) => {
         // STRIPE LOGIC
