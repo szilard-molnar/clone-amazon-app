@@ -6,7 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import CurrencyFormat from 'react-currency-format';
 import { getBasketTotal } from './reducer';
-import axios from 'axios';
+import axios from './axios';
 
 function Payment() {
     const [{basket, user}, dispatch] = useStateValue();
@@ -30,7 +30,7 @@ function Payment() {
             const response = await axios({
                 method: "post",
                 //Stripe expects the total in a currencies subunits
-                url: "/payments/create?total=" + getBasketTotal(basket) * 100,
+                url: `/payments/create?total=${getBasketTotal(basket) * 100}`,
             });
 
             setClientSecret(response.data.clientSecret);

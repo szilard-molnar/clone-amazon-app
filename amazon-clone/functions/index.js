@@ -13,9 +13,9 @@ app.use(cors({ origin: true }));
 app.use(express.json());
 
 // API routes
-app.get("/", (request, response) => response.status(201).send('hello world'));
+app.get('/', (request, response) => response.status(201).send('hello world'));
 
-app.post("/payments/create", async (request, response) => {
+app.post('/payments/create', async (request, response) => {
     const total = request.query.total;
 
     console.log("Payment request received BOOM!!! >>>", total);
